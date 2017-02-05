@@ -56,7 +56,7 @@ The *process_dump1090.py* requires the following, aside from Python 2.7 or 3.x.
 * Using your favourite text editor other than Notepad, open *spark-defaults.conf* and append the
   below line to the file and save
 
-       spark.sql.warehouse.dir            file:///C:/spark/spark-2.0.2-bin-hadoop2.6/spark-warehouse
+            spark.sql.warehouse.dir            file:///C:/spark/spark-2.0.2-bin-hadoop2.6/spark-warehouse
 
 * Open the winutils zip file and browse to *winutils-master\hadoop-2.6.4*
 * Extract the *bin* folder to *C:\spark*, you should now have *C:\spark\bin* with a bunch of files
@@ -64,25 +64,25 @@ The *process_dump1090.py* requires the following, aside from Python 2.7 or 3.x.
 * Install the Microsoft C++ Redistributable Package 2010 (prerequisite for winutils)
 * Run the following command:
 
-       C:\spark\bin\winutils.exe chmod 777 C:\spark\spark-2.0.2-bin-hadoop2.6\spark-warehouse
+            C:\spark\bin\winutils.exe chmod 777 C:\spark\spark-2.0.2-bin-hadoop2.6\spark-warehouse
 
 * Install the latest Java JDK
 * Create these system environment variables (adjust for your version of Java installed)
 
-       HADOOP_HOME=C:\spark
-       SPARK_HOME=C:\spark\spark-2.0.2-bin-hadoop2.6
-       JAVA_HOME=C:\Program Files\java\jdk1.8.0_121
+            HADOOP_HOME=C:\spark
+            SPARK_HOME=C:\spark\spark-2.0.2-bin-hadoop2.6
+            JAVA_HOME=C:\Program Files\java\jdk1.8.0_121
 
 * Append the below paths to the system path:
 
-       C:\spark\bin
-       %SPARK_HOME\bin
-       %JAVA_HOME%\bin
+            C:\spark\bin
+            %SPARK_HOME\bin
+            %JAVA_HOME%\bin
 
 * Run the below command, Windows firewall may ask you about something, allow it for private
   networks.
 
-       C:\spark\spark-2.0.2-bin-hadoop2.6\bin\spark-shell.cmd
+            C:\spark\spark-2.0.2-bin-hadoop2.6\bin\spark-shell.cmd
 
 * There should be no errors, may have a WARN SparkContext, but nothing else.
 * Type *:quit* to exit Scala.
