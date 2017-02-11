@@ -66,7 +66,7 @@ def has_column(df, col):
         return False
 
 if CSVfilepath == '':
-    print 'No file provided'
+    print ('No file provided')
 else:
 
     # the coordinates and altitude are used to identify planes that falls within these parameters, in identifying
@@ -272,20 +272,21 @@ else:
                             if row[3] <> "":
                                 if bPastFirst is True:
                                     try:
-                                        int(row[3])     # test to see if we have a numeric value, if not, ignore it
+                                        float(row[3])     # test to see if we have a numeric value, if not, ignore it
                                     except:
                                         row[3] = prevAltitude
-                                    if abs(int(prevAltitude)-int(row[3])) < 20000:
+                                    if abs(float(prevAltitude)-float(row[3])) < 20000:
                                         # sometimes there is error in the altitude, so if the altitude change is more
                                         # than 20,000 feet, then we'll use the altitude from the previous coordinate
                                         # it's a bit of a bruteforce method
-                                        fKML.write(row[1]+','+row[2]+','+str(int(row[3])*0.3048)+'\n')
+
+                                        fKML.write(row[1]+','+row[2]+','+str(float(row[3])*0.3048)+'\n')
                                         prevAltitude = row[3]
                                     else:
-                                        fKML.write(row[1]+','+row[2]+','+prevAltitude+'\n')
+                                        fKML.write(row[1]+','+row[2]+','+str(float(prevAltitude)*0.3048)+'\n')
                                 else:
                                     prevAltitude = row[3]
-                                    fKML.write(row[1]+','+row[2]+','+str(int(row[3])*0.3048)+'\n')
+                                    fKML.write(row[1]+','+row[2]+','+str(float(row[3])*0.3048)+'\n')
                                     bPastFirst = True
 
                         del inputCSV
